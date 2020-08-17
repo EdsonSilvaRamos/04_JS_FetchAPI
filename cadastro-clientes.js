@@ -7,7 +7,7 @@ formCadastroCliente.addEventListener("submit", event => {
     const nome = event.target.querySelector('[data-nome]').value;
 
     if (verificaCpf(cpf)) {
-        cadastrarClientes(cpf, nome)
+        cadastrarClientes(nome, cpf)
     } else {
         alert('CPF inválido!')
     }
