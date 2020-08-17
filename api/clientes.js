@@ -1,4 +1,4 @@
-listarClientes = () => {
+const listarClientes = () => {
     return fetch("http://localhost:4000/clientes")
         .then(resposta => {
             return resposta.json();
@@ -7,4 +7,21 @@ listarClientes = () => {
                 return json;
             }
         )
+}
+
+const cadastrarClientes = (nome, cpf) => {
+    const json = JSON.stringify({
+        nome: nome,
+        cpf: cpf
+    })
+    return fetch("http://localhost:4000/clientes/cliente", {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: json
+        })
+        .then(resposta => {
+            return resposta.body;
+        })
 }
