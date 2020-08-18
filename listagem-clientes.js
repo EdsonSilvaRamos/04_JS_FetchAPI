@@ -7,12 +7,10 @@ const exibeCliente = (cpf, nome, id) => {
     <td>${nome}</td>
     <button type="button" class="btn btn-danger" onClick="excluirCliente(${id})">Excluir</button>
     <a href="edita-clientes.html?id=${id}"> <button class="btn btn-info">Editar</button></a>`;
-
     linha.innerHTML = conteudoLinha;
+
     return linha;
-
 };
-
 
 listarClientes().then(exibeListaCliente => {
     exibeListaCliente.forEach(indice => {
@@ -22,6 +20,7 @@ listarClientes().then(exibeListaCliente => {
 
 const excluirCliente = id => {
     if (confirm("Deseja excluir o cliente?")) {
-        excluirClientePor(id);
+        excluirClientePor(id),
+            document.location.reload();
     }
 };
